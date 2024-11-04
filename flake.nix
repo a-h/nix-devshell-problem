@@ -18,7 +18,7 @@
           cp hello.sh $out/bin/hello
           chmod +x $out/bin/hello
         '';
-        nativeBuildInputs = [ pkgs.bash ];
+        buildInputs = [ pkgs.bash ];
       };
 
       devTools = { pkgs }: [
