@@ -20,6 +20,7 @@ Inside the repo, run the following commands to export the flake outputs, devshel
 
 ```bash
 export NIXPKGS_COMMIT=`jq -r '.nodes.[.nodes.[.root].inputs.nixpkgs].locked | "\(.type):\(.owner)/\(.repo)/\(.rev)"' flake.lock`
+nix copy --to file://$PWD/export "$NIXPKGS_COMMIT#legacyPackages.x86_64-linux.stdenv"
 nix copy --to file://$PWD/export "$NIXPKGS_COMMIT#legacyPackages.x86_64-linux.bashInteractive"
 # Copy the packages (there's only 1).
 nix copy --to file://$PWD/export .#packages.x86_64-linux.default
